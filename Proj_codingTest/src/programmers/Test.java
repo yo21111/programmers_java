@@ -17,46 +17,40 @@
  */
 package programmers;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Test {
 	public static void main(String[] args) {
-		int bridge_length = 100;
-		int weight = 100;
-		int[] truck_weights = {10,10,10,10,10,10,10,10,10,10};
-
-		Queue<Integer> que = new LinkedList<>();
-		for (int i = 0; i < bridge_length; i++) {
-			que.add(0);
+		String[][] clothes = {{"yellowhat", "headgear"}, {"bluesunglasses", "eyewear"}, {"green_turban", "headgear"}};
+		
+		int[] arr = toMap(clothes);
+		int answer = 1;
+		for (int i : arr) {
+			answer *= i;
 		}
 		
-		List<Integer> list = new ArrayList<>();
-		int order = 0;
-		int truck = 0;
+		answer -= 1;
+	}
+	public static int[] toMap(String[][] c) {
+		Map<String, Integer> map = new HashMap<>();
 		
-		while (!que.isEmpty()) {
-			if (order < truck_weights.length) {
-				truck = truck_weights[order];
+		for (int  i = 0; i < c.length; i++) {
+			if(map.containsKey(c[i][1])) {
+				map.put(c[i][1], map.get(c[i][1])+1);
+			} else {
+				map.put(c[i][1], 1);
 			}
-			
-			int bye = que.poll();
-			weight += bye;
-			list.add(bye);
-			
-			if (order < truck_weights.length && weight >= truck) {
-				weight -= truck;
-				que.add(truck);
-				order++;
-			} else if (order < truck_weights.length && weight < truck) {
-				que.add(0);
-			}
-			
 		}
 		
-		System.out.println(list.size());
-		System.out.println(list);
+		int[] arr = new int[map.size()];
+		int idx = 0;
+		for(int i : map.values()) {
+			arr[idx] = i+1;
+			idx++;
+		}
+		
+		return arr;
 	}
 }
