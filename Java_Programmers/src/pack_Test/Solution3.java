@@ -8,7 +8,7 @@
   	 다른 변수에 담은 list를 사용하고 return한다고 해도 기존에 인수로 넣은 list가 변함을
   	 간과하였음
  2. 교집합이 공집합일때라고 문제를 잘못 읽고 fail이 일어났음 해당 내용 수정 후 풀이완료
- */
+ */ 
 package pack_Test;
 
 import java.util.ArrayList;
