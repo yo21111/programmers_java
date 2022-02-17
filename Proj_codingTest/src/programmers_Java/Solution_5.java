@@ -1,3 +1,8 @@
+// 프로그래머스, [3차] 압축
+/*
+영문 대문자를 넣은 사전을 바탕으로 없는 문자라면 사전에 추가하고 있는 단어는 배열에 넣어 리턴하는 문제
+단순 메서드 반복으로 풀 수 있던 문제
+*/
 package programmers_Java;
 
 import java.util.ArrayList;
@@ -49,7 +54,7 @@ public class Solution_5 {
 	}
 	
 
-	// �������� �ش� �ܾ� ã��
+	// 사전에서 해당 단어 찾기
 	public static boolean findWord(String word, Map<String, Integer> di) {
 		Set<String> set = di.keySet();
 		if (set.contains(word)) {
@@ -59,7 +64,7 @@ public class Solution_5 {
 		}
 	}
 
-	// ���� �ʱ�ȭ
+	// 사전 초기화
 	public static Map<String, Integer> dictionary() {
 		Map<String, Integer> map = new HashMap<>();
 
