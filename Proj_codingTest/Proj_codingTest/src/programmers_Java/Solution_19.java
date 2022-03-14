@@ -28,6 +28,7 @@ public class Solution_19 {
 				max = prev[i];
 			}
 		}
+		
 		return max;
 	}
 }
