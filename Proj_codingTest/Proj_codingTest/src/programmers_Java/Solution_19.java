@@ -15,6 +15,7 @@ public class Solution_19 {
 				land[i][j] += findMax(land[i - 1], j);
 			}
 		}
+		
 		int answer = findMax(land[land.length - 1], land[0].length);
 		return answer;
 	}
